@@ -1,0 +1,1318 @@
+{
+  "tenant": {
+    "id": "company-apex-retail",
+    "name": "Apex Omnichannel Retailers Ltd.",
+    "businessName": "Apex Omnichannel Private Limited",
+    "gstin": "27AABCA1234F1Z5",
+    "currency": "INR",
+    "timezone": "Asia/Kolkata",
+    "supportEmail": "operations@apexretail.io"
+  },
+  "gmail": {
+    "isConnected": true,
+    "isDemo": true,
+    "connectedEmail": "seller-orders@apexretail.io",
+    "connectedAt": "2026-11-12T03:51:43.549Z",
+    "lastSyncAt": "2026-11-19T04:03:40.372Z",
+    "nextScheduledSyncAt": "2026-11-19T04:09:43.549Z",
+    "autoSyncEnabled": true,
+    "syncIntervalMinutes": 30,
+    "totalEmailsScanned": 844,
+    "totalOrdersIngested": 509,
+    "unreadSyncPending": 0,
+    "oauthConfig": {
+      "clientId": "8492019482-apps.googleusercontent.com",
+      "clientSecretSet": true,
+      "redirectUri": "http://localhost:3000/api/gmail/oauth/callback",
+      "scopes": [
+        "https://www.googleapis.com/auth/gmail.readonly"
+      ]
+    }
+  },
+  "marketplaces": [
+    {
+      "id": "mp-amazon",
+      "marketplace": "AMAZON",
+      "name": "Amazon India (SP-API & Gmail)",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
+      "connectionType": "HYBRID",
+      "status": "DEMO_MODE",
+      "lastSyncAt": "2026-11-19T03:33:43.548Z",
+      "totalOrdersCount": 142,
+      "apiCredentialsConfigured": false,
+      "apiConfig": {
+        "sellerId": "A2Q94819284",
+        "region": "eu-west-1 (India IN)"
+      },
+      "gmailFilterRules": {
+        "fromAddress": "order-update@amazon.in",
+        "subjectKeywords": [
+          "Order notification",
+          "cancellation notification",
+          "Your package has shipped"
+        ],
+        "bodyKeywords": [
+          "Amazon.in",
+          "Order ID",
+          "Ship To"
+        ]
+      },
+      "notes": "Connect via Amazon Selling Partner API (LWA OAuth) or Gmail automatic order parser."
+    },
+    {
+      "id": "mp-flipkart",
+      "marketplace": "FLIPKART",
+      "name": "Flipkart Seller Hub",
+      "logo": "https://asset.brandfetch.io/idfdtkpOXt/id4374bZ2H.png",
+      "connectionType": "HYBRID",
+      "status": "DEMO_MODE",
+      "lastSyncAt": "2026-11-19T03:16:43.549Z",
+      "totalOrdersCount": 98,
+      "apiCredentialsConfigured": false,
+      "apiConfig": {
+        "sellerId": "FK-SLR-8823",
+        "appSecret": "••••••••••••••••"
+      },
+      "gmailFilterRules": {
+        "fromAddress": "seller-support@flipkart.com",
+        "subjectKeywords": [
+          "You have a new order",
+          "Customer return initiated",
+          "handover to ekart"
+        ],
+        "bodyKeywords": [
+          "Flipkart Seller Hub",
+          "FSN",
+          "Dispatch SLA"
+        ]
+      },
+      "notes": "Supports Flipkart Seller API v3 with Ekart courier tracking and dispatch labels."
+    },
+    {
+      "id": "mp-meesho",
+      "marketplace": "MEESHO",
+      "name": "Meesho Supplier Panel",
+      "logo": "https://images.meesho.com/images/pow/meesho_logo_app.png",
+      "connectionType": "GMAIL_PARSER",
+      "status": "DEMO_MODE",
+      "lastSyncAt": "2026-11-19T03:09:43.549Z",
+      "totalOrdersCount": 64,
+      "apiCredentialsConfigured": false,
+      "gmailFilterRules": {
+        "fromAddress": "supplier-alerts@meesho.com",
+        "subjectKeywords": [
+          "New Order Received",
+          "Sub-Order ID",
+          "cancellation"
+        ],
+        "bodyKeywords": [
+          "Meesho Supplier Panel",
+          "Supplier Settlement",
+          "Shadowfax"
+        ]
+      },
+      "notes": "Real-time Gmail parsing engine for sub-orders with auto-allocation to local warehouses."
+    },
+    {
+      "id": "mp-shopify",
+      "marketplace": "SHOPIFY",
+      "name": "Shopify Store (Direct API & Webhooks)",
+      "logo": "https://cdn.iconscout.com/icon/free/png-256/free-shopify-logo-icon-download-in-svg-png-gif-file-formats--brand-social-media-pack-logos-icons-2673841.png",
+      "connectionType": "DIRECT_API",
+      "status": "DEMO_MODE",
+      "lastSyncAt": "2026-11-19T03:46:43.549Z",
+      "totalOrdersCount": 86,
+      "apiCredentialsConfigured": false,
+      "apiConfig": {
+        "storeUrl": "https://mystore.myshopify.com",
+        "accessToken": "shpat_••••••••••••••••••••••••"
+      },
+      "gmailFilterRules": {
+        "fromAddress": "mailer@shopify.com",
+        "subjectKeywords": [
+          "Order #",
+          "placed by",
+          "shipping confirmation"
+        ],
+        "bodyKeywords": [
+          "Shopify",
+          "Razorpay",
+          "Items Ordered"
+        ]
+      },
+      "notes": "Syncs via Shopify Admin REST / GraphQL API v2024-07 and automated notification webhooks."
+    },
+    {
+      "id": "mp-woocommerce",
+      "marketplace": "WOOCOMMERCE",
+      "name": "WooCommerce Webstore",
+      "logo": "https://cdn.iconscout.com/icon/free/png-256/free-woocommerce-logo-icon-download-in-svg-png-gif-file-formats--brand-social-media-pack-logos-icons-2673836.png",
+      "connectionType": "HYBRID",
+      "status": "DEMO_MODE",
+      "lastSyncAt": "2026-11-19T02:56:43.549Z",
+      "totalOrdersCount": 38,
+      "apiCredentialsConfigured": false,
+      "apiConfig": {
+        "storeUrl": "https://store.example.com",
+        "apiKey": "ck_••••••••••••••••",
+        "appSecret": "cs_••••••••••••••••"
+      },
+      "gmailFilterRules": {
+        "fromAddress": "sales@",
+        "subjectKeywords": [
+          "New customer order",
+          "Order #"
+        ],
+        "bodyKeywords": [
+          "WooCommerce",
+          "Billing address"
+        ]
+      },
+      "notes": "Direct WooCommerce REST API v3 key pair or transactional email parser."
+    },
+    {
+      "id": "mp-myntra",
+      "marketplace": "MYNTRA",
+      "name": "Myntra Partner Portal (PPMP)",
+      "logo": "https://constant.myntassets.com/web/assets/img/icon.5d340f8358636dec82166.png",
+      "connectionType": "GMAIL_PARSER",
+      "status": "DEMO_MODE",
+      "lastSyncAt": "2026-11-19T02:41:43.549Z",
+      "totalOrdersCount": 52,
+      "apiCredentialsConfigured": false,
+      "gmailFilterRules": {
+        "fromAddress": "sellercare@myntra.com",
+        "subjectKeywords": [
+          "Myntra Omnichannel Order Alert",
+          "MYN-"
+        ],
+        "bodyKeywords": [
+          "Myntra Designs",
+          "Style ID",
+          "LogiNext"
+        ]
+      },
+      "notes": "Omnichannel fulfillment and store pickup sync with Myntra Logistics."
+    },
+    {
+      "id": "mp-ajio",
+      "marketplace": "AJIO",
+      "name": "AJIO Business / Reliance Retail",
+      "logo": "https://assets.ajio.com/static/img/Ajio-Logo.svg",
+      "connectionType": "GMAIL_PARSER",
+      "status": "DEMO_MODE",
+      "lastSyncAt": "2026-11-19T02:21:43.549Z",
+      "totalOrdersCount": 29,
+      "apiCredentialsConfigured": false,
+      "gmailFilterRules": {
+        "fromAddress": "reliance.retail@ajio.com",
+        "subjectKeywords": [
+          "Order ID: AJ-",
+          "Reliance Retail"
+        ],
+        "bodyKeywords": [
+          "AJIO Business",
+          "Item Code"
+        ]
+      },
+      "notes": "Automated order ingestion from Reliance Retail Dropship email alerts."
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-101",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1001",
+      "marketplaceOrderId": "404-9823412-1928374",
+      "marketplace": "AMAZON",
+      "orderDate": "2026-11-19T03:06:43.549Z",
+      "internalStatus": "CONFIRMED",
+      "marketplaceStatus": "Unshipped",
+      "customer": {
+        "name": "Aarav Patel",
+        "email": "aarav.patel@gmail.com",
+        "phone": "+91 98201 12345"
+      },
+      "shippingAddress": {
+        "street": "Flat 6B, Prestige Acropolis, Koramangala 3rd Block",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "postalCode": "560034",
+        "country": "India",
+        "phone": "+91 98201 12345"
+      },
+      "items": [
+        {
+          "id": "item-101",
+          "sku": "AUD-BT-099-BLK",
+          "name": "Noise-Cancelling Wireless Over-Ear Headphones (Midnight Black)",
+          "quantity": 1,
+          "unitPrice": 3499,
+          "totalPrice": 3499,
+          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 3499,
+      "tax": 629.82,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 3499,
+      "paymentStatus": "PAID",
+      "paymentMethod": "Prepaid (Amazon Pay UPI)",
+      "shippingStatus": "LABEL_CREATED",
+      "courierPartner": "Amazon Shipping (ATS)",
+      "trackingNumber": "ATS982348192IN",
+      "rawEmailSubject": "Order notification: 404-9823412-1928374",
+      "rawEmailSnippet": "An order has been placed for Wireless Over-Ear Headphones by Aarav Patel. Ship To: Bengaluru...",
+      "timeline": [
+        {
+          "id": "tl-1",
+          "timestamp": "2026-11-19T03:06:43.549Z",
+          "title": "Order Ingested from Gmail",
+          "description": "Detected from order-update@amazon.in via Amazon Parser v2.4",
+          "source": "GMAIL_EMAIL"
+        },
+        {
+          "id": "tl-2",
+          "timestamp": "2026-11-19T03:21:43.549Z",
+          "title": "Order Confirmed",
+          "description": "Inventory reserved automatically for SKU AUD-BT-099-BLK",
+          "source": "SYSTEM_CRON"
+        }
+      ],
+      "notes": [
+        {
+          "id": "nt-1",
+          "author": "Priya Sharma",
+          "authorRole": "ORDER_MANAGER",
+          "createdAt": "2026-11-19T03:31:43.549Z",
+          "content": "Confirmed gift packaging requested by customer."
+        }
+      ],
+      "isManualCorrection": false,
+      "unknownFields": [],
+      "createdAt": "2026-11-19T03:06:43.549Z",
+      "updatedAt": "2026-11-19T03:31:43.549Z"
+    },
+    {
+      "id": "ord-102",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1002",
+      "marketplaceOrderId": "OD129481928471928341",
+      "marketplace": "FLIPKART",
+      "orderDate": "2026-11-19T01:51:43.550Z",
+      "internalStatus": "PROCESSING",
+      "marketplaceStatus": "Approved - Pending Picklist",
+      "customer": {
+        "name": "Neha Kapoor",
+        "email": "neha.k@outlook.com",
+        "phone": "+91 99002 99881"
+      },
+      "shippingAddress": {
+        "street": "Tower 4, Apt 1102, DLF Phase 5, Golf Course Road",
+        "city": "Gurugram",
+        "state": "Haryana",
+        "postalCode": "122002",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "item-102",
+          "sku": "CUSH-LUMB-MESH-GRY",
+          "name": "Ergonomic Orthopedic Lumbar Support Cushion (Air Mesh Grey)",
+          "quantity": 2,
+          "unitPrice": 899,
+          "totalPrice": 1798,
+          "image": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 1798,
+      "tax": 323.64,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 1798,
+      "paymentStatus": "PAID",
+      "paymentMethod": "Prepaid (Flipkart Gateway)",
+      "shippingStatus": "UNFULFILLED",
+      "courierPartner": "Ekart Logistics",
+      "rawEmailSubject": "Action Required: You have a new order OD129481928471928341",
+      "rawEmailSnippet": "Order OD129481928471928341 placed. Dispatch SLA: 20 Nov 2026. Deliver to Gurugram...",
+      "timeline": [
+        {
+          "id": "tl-102",
+          "timestamp": "2026-11-19T01:51:43.550Z",
+          "title": "Email Order Detected",
+          "description": "Flipkart Seller Hub notification parsed successfully",
+          "source": "GMAIL_EMAIL"
+        }
+      ],
+      "notes": [],
+      "isManualCorrection": false,
+      "unknownFields": [],
+      "createdAt": "2026-11-19T01:51:43.550Z",
+      "updatedAt": "2026-11-19T01:51:43.550Z"
+    },
+    {
+      "id": "ord-103",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1003",
+      "marketplaceOrderId": "s-4928174129",
+      "marketplace": "MEESHO",
+      "orderDate": "2026-11-19T00:51:43.550Z",
+      "internalStatus": "PACKED",
+      "marketplaceStatus": "Ready for Handover",
+      "customer": {
+        "name": "Amit Verma",
+        "phone": "+91 97110 99887"
+      },
+      "shippingAddress": {
+        "street": "House No 74, Sector 15, Vasundhara",
+        "city": "Ghaziabad",
+        "state": "Uttar Pradesh",
+        "postalCode": "201012",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "item-103",
+          "sku": "MSH-SHIRT-NVY-L",
+          "name": "Men's Regular Fit Cotton Blend Casual Shirt (Navy Blue, Size L)",
+          "quantity": 1,
+          "unitPrice": 449,
+          "totalPrice": 449,
+          "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 449,
+      "tax": 22.45,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 449,
+      "paymentStatus": "COD",
+      "paymentMethod": "Cash on Delivery (COD)",
+      "shippingStatus": "LABEL_CREATED",
+      "courierPartner": "Shadowfax Express",
+      "trackingNumber": "SFX-9948201948",
+      "rawEmailSubject": "New Order Received! Sub-Order ID s-4928174129",
+      "timeline": [
+        {
+          "id": "tl-103-1",
+          "timestamp": "2026-11-19T00:51:43.550Z",
+          "title": "Order Ingested",
+          "description": "Parsed from Meesho Supplier email notification",
+          "source": "GMAIL_EMAIL"
+        },
+        {
+          "id": "tl-103-2",
+          "timestamp": "2026-11-19T02:51:43.550Z",
+          "title": "Packed & Barcode Scanned",
+          "description": "Box #B-19 tagged by warehouse scanner",
+          "source": "MANUAL_STAFF",
+          "actor": "Rahul (Warehouse Staff)"
+        }
+      ],
+      "notes": [],
+      "isManualCorrection": false,
+      "unknownFields": [
+        "customer.email"
+      ],
+      "createdAt": "2026-11-19T00:51:43.550Z",
+      "updatedAt": "2026-11-19T02:51:43.550Z"
+    },
+    {
+      "id": "ord-104",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1004",
+      "marketplaceOrderId": "#1042",
+      "marketplace": "SHOPIFY",
+      "orderDate": "2026-11-18T23:51:43.550Z",
+      "internalStatus": "SHIPPED",
+      "marketplaceStatus": "Fulfilled",
+      "customer": {
+        "name": "Sunita Rao",
+        "email": "sunita.rao@example.com",
+        "phone": "+91 98111 55667"
+      },
+      "shippingAddress": {
+        "street": "Villa 14, Palm Meadows, Whitefield",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "postalCode": "560066",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "item-104",
+          "sku": "TEA-MATCHA-100G",
+          "name": "Premium Organic Ceremonial Grade Matcha Green Tea Powder (100g)",
+          "quantity": 1,
+          "unitPrice": 1299,
+          "totalPrice": 1299,
+          "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 1299,
+      "tax": 233.82,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 1299,
+      "paymentStatus": "PAID",
+      "paymentMethod": "Razorpay (Credit Card)",
+      "shippingStatus": "IN_TRANSIT",
+      "courierPartner": "Delhivery Surface",
+      "trackingNumber": "DLV8839201940",
+      "rawEmailSubject": "[Apex Brand Store] Order #1042 placed by Sunita Rao",
+      "timeline": [
+        {
+          "id": "tl-104-1",
+          "timestamp": "2026-11-18T23:51:43.550Z",
+          "title": "Shopify Webhook Ingested",
+          "description": "Instant notification via Shopify API",
+          "source": "MARKETPLACE_API"
+        },
+        {
+          "id": "tl-104-2",
+          "timestamp": "2026-11-19T02:21:43.550Z",
+          "title": "Handed to Courier",
+          "description": "Delhivery courier pickup scanned at Central Warehouse Hub",
+          "source": "SYSTEM_CRON"
+        }
+      ],
+      "notes": [],
+      "isManualCorrection": false,
+      "unknownFields": [],
+      "createdAt": "2026-11-18T23:51:43.550Z",
+      "updatedAt": "2026-11-19T02:21:43.550Z"
+    },
+    {
+      "id": "ord-105",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1005",
+      "marketplaceOrderId": "MYN-83920194",
+      "marketplace": "MYNTRA",
+      "orderDate": "2026-11-18T22:51:43.550Z",
+      "internalStatus": "DELIVERED",
+      "marketplaceStatus": "Delivered to Customer",
+      "customer": {
+        "name": "Gaurav Mehra",
+        "email": "gaurav.m@gmail.com",
+        "phone": "+91 98333 44556"
+      },
+      "shippingAddress": {
+        "street": "E-24, South Extension Part II",
+        "city": "New Delhi",
+        "state": "Delhi",
+        "postalCode": "110049",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "item-105",
+          "sku": "BLAZ-CHAR-40R",
+          "name": "Men Slim Fit Italian Linen Blazer - Charcoal Grey (Size 40R)",
+          "quantity": 1,
+          "unitPrice": 4999,
+          "totalPrice": 4999,
+          "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 4999,
+      "tax": 599.88,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 4999,
+      "paymentStatus": "PAID",
+      "paymentMethod": "Myntra Prepaid (UPI)",
+      "shippingStatus": "DELIVERED",
+      "courierPartner": "Myntra Logistics",
+      "trackingNumber": "MYN-TRK-7719284",
+      "rawEmailSubject": "Myntra Omnichannel Order Alert: MYN-83920194",
+      "timeline": [
+        {
+          "id": "tl-105-1",
+          "timestamp": "2026-11-18T22:51:43.550Z",
+          "title": "Order Ingested",
+          "description": "Detected from sellercare@myntra.com",
+          "source": "GMAIL_EMAIL"
+        },
+        {
+          "id": "tl-105-2",
+          "timestamp": "2026-11-19T03:11:43.550Z",
+          "title": "Delivered",
+          "description": "Delivered with OTP verification",
+          "source": "SYSTEM_CRON"
+        }
+      ],
+      "notes": [],
+      "isManualCorrection": false,
+      "unknownFields": [],
+      "createdAt": "2026-11-18T22:51:43.550Z",
+      "updatedAt": "2026-11-19T03:11:43.550Z"
+    },
+    {
+      "id": "ord-106",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1006",
+      "marketplaceOrderId": "408-7294821-9284729",
+      "marketplace": "AMAZON",
+      "orderDate": "2026-11-18T21:51:43.550Z",
+      "internalStatus": "CANCELLED",
+      "marketplaceStatus": "Cancelled by Buyer",
+      "customer": {
+        "name": "Rajesh K. Sharma",
+        "phone": "+91 98200 44556"
+      },
+      "shippingAddress": {
+        "street": "Flat 402, Lotus Grand Residency, Malad West",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "postalCode": "400064",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "item-106",
+          "sku": "AUD-BT-099-BLK",
+          "name": "Wireless Noise-Cancelling Over-Ear Headphones (Midnight Black)",
+          "quantity": 1,
+          "unitPrice": 3499,
+          "totalPrice": 3499,
+          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 3499,
+      "tax": 629.82,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 3499,
+      "paymentStatus": "REFUNDED",
+      "paymentMethod": "Amazon Pay (Refunded)",
+      "shippingStatus": "UNFULFILLED",
+      "courierPartner": "Amazon Shipping (ATS)",
+      "rawEmailSubject": "Order cancellation notification: 408-7294821-9284729",
+      "timeline": [
+        {
+          "id": "tl-106-1",
+          "timestamp": "2026-11-18T21:51:43.550Z",
+          "title": "Order Ingested",
+          "description": "Original order email parsed",
+          "source": "GMAIL_EMAIL"
+        },
+        {
+          "id": "tl-106-2",
+          "timestamp": "2026-11-19T00:31:43.550Z",
+          "title": "Cancellation Email Detected",
+          "description": "Gmail scanner detected cancellation notice from order-update@amazon.in. Order auto-cancelled and reserved stock released.",
+          "source": "GMAIL_EMAIL"
+        }
+      ],
+      "notes": [
+        {
+          "id": "nt-106",
+          "author": "System Bot",
+          "authorRole": "ADMIN",
+          "createdAt": "2026-11-19T00:31:43.550Z",
+          "content": "Released 1 unit of AUD-BT-099-BLK back to available inventory."
+        }
+      ],
+      "isManualCorrection": false,
+      "unknownFields": [
+        "customer.email"
+      ],
+      "createdAt": "2026-11-18T21:51:43.550Z",
+      "updatedAt": "2026-11-19T00:31:43.550Z"
+    },
+    {
+      "id": "ord-107",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1007",
+      "marketplaceOrderId": "WOO-1852",
+      "marketplace": "WOOCOMMERCE",
+      "orderDate": "2026-11-18T20:51:43.550Z",
+      "internalStatus": "CONFIRMED",
+      "marketplaceStatus": "Processing",
+      "customer": {
+        "name": "Vikram Singhania",
+        "email": "vikram.s@company.co",
+        "phone": "+91 99881 22334"
+      },
+      "shippingAddress": {
+        "street": "Plot 88, Jubilee Hills",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "postalCode": "500033",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "item-107",
+          "sku": "TECH-CHRG-15W",
+          "name": "Wireless Fast Charging Pad Qi Certified 15W",
+          "quantity": 1,
+          "unitPrice": 1599,
+          "totalPrice": 1599,
+          "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 1599,
+      "tax": 287.82,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 1599,
+      "paymentStatus": "PAID",
+      "paymentMethod": "UPI / Direct Bank Transfer",
+      "shippingStatus": "UNFULFILLED",
+      "courierPartner": "BlueDart Express",
+      "rawEmailSubject": "[My Store] New customer order (1852) - 19 November 2026",
+      "timeline": [
+        {
+          "id": "tl-107-1",
+          "timestamp": "2026-11-18T20:51:43.550Z",
+          "title": "Order Parsed",
+          "description": "WooCommerce transactional email parsed",
+          "source": "GMAIL_EMAIL"
+        }
+      ],
+      "notes": [],
+      "isManualCorrection": false,
+      "unknownFields": [],
+      "createdAt": "2026-11-18T20:51:43.550Z",
+      "updatedAt": "2026-11-18T20:51:43.550Z"
+    },
+    {
+      "id": "ord-108",
+      "tenantId": "company-apex-retail",
+      "orderNumber": "OMS-1008",
+      "marketplaceOrderId": "AJ-88291039",
+      "marketplace": "AJIO",
+      "orderDate": "2026-11-18T19:31:43.550Z",
+      "internalStatus": "PROCESSING",
+      "marketplaceStatus": "Order Manifest Generated",
+      "customer": {
+        "name": "Ananya Deshmukh",
+        "email": "ananya.d@gmail.com",
+        "phone": "+91 97666 11223"
+      },
+      "shippingAddress": {
+        "street": "Bungalow 7, Shivaji Park, Dadar West",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "postalCode": "400028",
+        "country": "India"
+      },
+      "items": [
+        {
+          "id": "item-108",
+          "sku": "AJ-W-DRESS-RED",
+          "name": "Floral Print Georgette Fit & Flare Maxi Dress",
+          "quantity": 1,
+          "unitPrice": 2199,
+          "totalPrice": 2199,
+          "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=160&auto=format&fit=crop&q=80"
+        }
+      ],
+      "currency": "INR",
+      "subtotal": 2199,
+      "tax": 263.88,
+      "shippingCost": 0,
+      "discount": 0,
+      "totalAmount": 2199,
+      "paymentStatus": "PAID",
+      "paymentMethod": "JioMoney / NetBanking",
+      "shippingStatus": "UNFULFILLED",
+      "courierPartner": "Reliance Logistics / Delhivery",
+      "rawEmailSubject": "Order ID: AJ-88291039 Reliance Retail Order Notification",
+      "timeline": [
+        {
+          "id": "tl-108-1",
+          "timestamp": "2026-11-18T19:31:43.550Z",
+          "title": "Order Ingested",
+          "description": "AJIO Partner email parser matched",
+          "source": "GMAIL_EMAIL"
+        }
+      ],
+      "notes": [],
+      "isManualCorrection": false,
+      "unknownFields": [],
+      "createdAt": "2026-11-18T19:31:43.550Z",
+      "updatedAt": "2026-11-18T19:31:43.550Z"
+    }
+  ],
+  "inventory": [
+    {
+      "id": "inv-1",
+      "tenantId": "company-apex-retail",
+      "sku": "AUD-BT-099-BLK",
+      "name": "Wireless Noise-Cancelling Over-Ear Headphones (Midnight Black)",
+      "barcode": "8901234567890",
+      "category": "Electronics & Audio",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=160&auto=format&fit=crop&q=80",
+      "costPrice": 1800,
+      "sellingPrice": 3499,
+      "availableStock": 24,
+      "reservedStock": 3,
+      "soldQuantity": 186,
+      "totalStock": 27,
+      "lowStockThreshold": 10,
+      "marketplaceAllocations": [
+        {
+          "marketplace": "AMAZON",
+          "stockAllocated": 12,
+          "salesCount": 112
+        },
+        {
+          "marketplace": "FLIPKART",
+          "stockAllocated": 8,
+          "salesCount": 54
+        },
+        {
+          "marketplace": "SHOPIFY",
+          "stockAllocated": 7,
+          "salesCount": 20
+        }
+      ],
+      "updatedAt": "2026-11-19T03:51:43.550Z"
+    },
+    {
+      "id": "inv-2",
+      "tenantId": "company-apex-retail",
+      "sku": "CUSH-LUMB-MESH-GRY",
+      "name": "Ergonomic Orthopedic Lumbar Support Cushion (Air Mesh Grey)",
+      "barcode": "8901234567891",
+      "category": "Home & Office",
+      "image": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=160&auto=format&fit=crop&q=80",
+      "costPrice": 420,
+      "sellingPrice": 899,
+      "availableStock": 6,
+      "reservedStock": 2,
+      "soldQuantity": 340,
+      "totalStock": 8,
+      "lowStockThreshold": 15,
+      "marketplaceAllocations": [
+        {
+          "marketplace": "FLIPKART",
+          "stockAllocated": 4,
+          "salesCount": 210
+        },
+        {
+          "marketplace": "AMAZON",
+          "stockAllocated": 2,
+          "salesCount": 95
+        },
+        {
+          "marketplace": "MEESHO",
+          "stockAllocated": 2,
+          "salesCount": 35
+        }
+      ],
+      "updatedAt": "2026-11-19T03:51:43.550Z"
+    },
+    {
+      "id": "inv-3",
+      "tenantId": "company-apex-retail",
+      "sku": "MSH-SHIRT-NVY-L",
+      "name": "Men's Regular Fit Cotton Blend Casual Shirt (Navy Blue, Size L)",
+      "barcode": "8901234567892",
+      "category": "Fashion & Apparel",
+      "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=160&auto=format&fit=crop&q=80",
+      "costPrice": 220,
+      "sellingPrice": 449,
+      "availableStock": 48,
+      "reservedStock": 4,
+      "soldQuantity": 412,
+      "totalStock": 52,
+      "lowStockThreshold": 20,
+      "marketplaceAllocations": [
+        {
+          "marketplace": "MEESHO",
+          "stockAllocated": 30,
+          "salesCount": 310
+        },
+        {
+          "marketplace": "FLIPKART",
+          "stockAllocated": 12,
+          "salesCount": 78
+        },
+        {
+          "marketplace": "AJIO",
+          "stockAllocated": 10,
+          "salesCount": 24
+        }
+      ],
+      "updatedAt": "2026-11-19T03:51:43.550Z"
+    },
+    {
+      "id": "inv-4",
+      "tenantId": "company-apex-retail",
+      "sku": "TEA-MATCHA-100G",
+      "name": "Premium Organic Ceremonial Grade Matcha Green Tea Powder (100g)",
+      "barcode": "8901234567893",
+      "category": "Gourmet & Beverage",
+      "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=160&auto=format&fit=crop&q=80",
+      "costPrice": 650,
+      "sellingPrice": 1299,
+      "availableStock": 18,
+      "reservedStock": 1,
+      "soldQuantity": 128,
+      "totalStock": 19,
+      "lowStockThreshold": 10,
+      "marketplaceAllocations": [
+        {
+          "marketplace": "SHOPIFY",
+          "stockAllocated": 12,
+          "salesCount": 94
+        },
+        {
+          "marketplace": "AMAZON",
+          "stockAllocated": 7,
+          "salesCount": 34
+        }
+      ],
+      "updatedAt": "2026-11-19T03:51:43.550Z"
+    },
+    {
+      "id": "inv-5",
+      "tenantId": "company-apex-retail",
+      "sku": "BLAZ-CHAR-40R",
+      "name": "Men Slim Fit Italian Linen Blazer - Charcoal Grey (Size 40R)",
+      "barcode": "8901234567894",
+      "category": "Fashion & Apparel",
+      "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=160&auto=format&fit=crop&q=80",
+      "costPrice": 2400,
+      "sellingPrice": 4999,
+      "availableStock": 9,
+      "reservedStock": 1,
+      "soldQuantity": 74,
+      "totalStock": 10,
+      "lowStockThreshold": 8,
+      "marketplaceAllocations": [
+        {
+          "marketplace": "MYNTRA",
+          "stockAllocated": 6,
+          "salesCount": 52
+        },
+        {
+          "marketplace": "AJIO",
+          "stockAllocated": 4,
+          "salesCount": 22
+        }
+      ],
+      "updatedAt": "2026-11-19T03:51:43.550Z"
+    },
+    {
+      "id": "inv-6",
+      "tenantId": "company-apex-retail",
+      "sku": "TECH-CHRG-15W",
+      "name": "Wireless Fast Charging Pad Qi Certified 15W",
+      "barcode": "8901234567895",
+      "category": "Electronics & Audio",
+      "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=160&auto=format&fit=crop&q=80",
+      "costPrice": 720,
+      "sellingPrice": 1599,
+      "availableStock": 35,
+      "reservedStock": 2,
+      "soldQuantity": 142,
+      "totalStock": 37,
+      "lowStockThreshold": 15,
+      "marketplaceAllocations": [
+        {
+          "marketplace": "WOOCOMMERCE",
+          "stockAllocated": 15,
+          "salesCount": 42
+        },
+        {
+          "marketplace": "AMAZON",
+          "stockAllocated": 15,
+          "salesCount": 82
+        },
+        {
+          "marketplace": "SHOPIFY",
+          "stockAllocated": 7,
+          "salesCount": 18
+        }
+      ],
+      "updatedAt": "2026-11-19T03:51:43.550Z"
+    }
+  ],
+  "emailLogs": [
+    {
+      "id": "log-1795061020369-747",
+      "tenantId": "company-apex-retail",
+      "messageId": "msg-1795061020369",
+      "subject": "Customer return initiated for Order OD129481928471928341",
+      "from": "seller-support@flipkart.com",
+      "date": "2026-11-19T04:03:40.369Z",
+      "marketplaceDetected": "FLIPKART",
+      "emailType": "ORDER_CONFIRMATION",
+      "status": "DUPLICATE_SKIPPED",
+      "matchedRules": [
+        "Flipkart Seller Hub Rule Engine (FSN + SLA Pattern Matching)"
+      ],
+      "extractedData": {
+        "marketplace": "FLIPKART",
+        "marketplaceOrderId": "OD129481928471928341",
+        "orderDate": "2026-11-19T04:03:40.369Z",
+        "internalStatus": "CONFIRMED",
+        "customer": {
+          "name": "Flipkart Customer",
+          "email": "flipkart-buyer@seller-relay.fk",
+          "phone": "+91 99000 88776"
+        },
+        "shippingAddress": {
+          "street": "Flipkart Hub Delivery Area",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "postalCode": "560001",
+          "country": "India"
+        },
+        "items": [
+          {
+            "id": "item-fk-1795061020369",
+            "name": "Flipkart Catalog Product",
+            "sku": "CUSH-LUMB-MESH-GRY",
+            "quantity": 1,
+            "unitPrice": 899,
+            "totalPrice": 899,
+            "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&auto=format&fit=crop&q=60"
+          }
+        ],
+        "currency": "INR",
+        "subtotal": 899,
+        "tax": 161.82,
+        "shippingCost": 0,
+        "discount": 0,
+        "totalAmount": 899,
+        "paymentStatus": "PAID",
+        "paymentMethod": "Prepaid (Flipkart Gateway)",
+        "shippingStatus": "LABEL_CREATED",
+        "courierPartner": "Ekart Logistics",
+        "unknownFields": [
+          "totalAmount"
+        ]
+      },
+      "missingFields": [
+        "totalAmount"
+      ],
+      "confidenceScore": 82,
+      "processedOrderId": "ord-102",
+      "isRead": false,
+      "rawSnippet": "Dear Partner,\n\nA customer return request has been authorized for Order ID: OD129481928471928341.\n\nProduct: Ergonomic Orthopedic Lumbar Support Cushion\nSeller SKU: CUSH-LUMB-MESH-GR..."
+    },
+    {
+      "id": "log-1795061002809-118",
+      "tenantId": "company-apex-retail",
+      "messageId": "msg-1795061002809",
+      "subject": "Myntra Omnichannel Order Alert: MYN-83920194",
+      "from": "sellercare@myntra.com",
+      "date": "2026-11-19T04:03:22.809Z",
+      "marketplaceDetected": "MYNTRA",
+      "emailType": "ORDER_CONFIRMATION",
+      "status": "DUPLICATE_SKIPPED",
+      "matchedRules": [
+        "Myntra Omnichannel Dispatch Protocol v4.0"
+      ],
+      "extractedData": {
+        "marketplace": "MYNTRA",
+        "marketplaceOrderId": "MYN-83920194",
+        "orderDate": "2026-11-19T04:03:22.808Z",
+        "internalStatus": "PROCESSING",
+        "customer": {
+          "name": "Myntra Fashion Buyer",
+          "email": "customer@myntra-relay.in",
+          "phone": "+91 98333 44556"
+        },
+        "shippingAddress": {
+          "street": "Bandra West, Hill Road",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "postalCode": "400050",
+          "country": "India"
+        },
+        "items": [
+          {
+            "id": "item-myn-1795061002808",
+            "name": "Myntra Premium Apparel & Footwear",
+            "sku": "MYN-STY-99482",
+            "quantity": 1,
+            "unitPrice": 4999,
+            "totalPrice": 4999,
+            "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=120&auto=format&fit=crop&q=60"
+          }
+        ],
+        "currency": "INR",
+        "subtotal": 4999,
+        "tax": 599.88,
+        "shippingCost": 0,
+        "discount": 0,
+        "totalAmount": 4999,
+        "paymentStatus": "PAID",
+        "paymentMethod": "Myntra Prepaid (Cards/UPI)",
+        "shippingStatus": "LABEL_CREATED",
+        "courierPartner": "Myntra Logistics (LogiNext)",
+        "unknownFields": []
+      },
+      "missingFields": [],
+      "confidenceScore": 95,
+      "processedOrderId": "ord-105",
+      "isRead": false,
+      "rawSnippet": "Dear Brand Partner,\n\nA new omnichannel order is ready for packaging at your store:\n\nOrder ID: MYN-83920194\nStyle ID: MYN-STY-99482\nProduct: Slim Fit Linen Blazer - Charcoal\nSKU: BL..."
+    },
+    {
+      "id": "log-1",
+      "tenantId": "company-apex-retail",
+      "messageId": "msg-amz-84920194",
+      "subject": "Order notification: 404-9823412-1928374",
+      "from": "order-update@amazon.in",
+      "date": "2026-11-19T03:06:43.550Z",
+      "marketplaceDetected": "AMAZON",
+      "emailType": "ORDER_CONFIRMATION",
+      "status": "SUCCESS",
+      "matchedRules": [
+        "Amazon Seller Notification Engine v2.4"
+      ],
+      "extractedData": {
+        "marketplaceOrderId": "404-9823412-1928374",
+        "totalAmount": 3499
+      },
+      "missingFields": [],
+      "confidenceScore": 98,
+      "processedOrderId": "ord-101",
+      "isRead": true,
+      "rawSnippet": "Dear Seller, Congratulations! An order has been placed for Wireless Noise-Cancelling Over-Ear Headphones..."
+    },
+    {
+      "id": "log-2",
+      "tenantId": "company-apex-retail",
+      "messageId": "msg-fk-12948192",
+      "subject": "Action Required: You have a new order OD129481928471928341 to dispatch",
+      "from": "seller-support@flipkart.com",
+      "date": "2026-11-19T01:51:43.550Z",
+      "marketplaceDetected": "FLIPKART",
+      "emailType": "ORDER_CONFIRMATION",
+      "status": "SUCCESS",
+      "matchedRules": [
+        "Flipkart Seller Hub Rule Engine"
+      ],
+      "extractedData": {
+        "marketplaceOrderId": "OD129481928471928341",
+        "totalAmount": 1798
+      },
+      "missingFields": [],
+      "confidenceScore": 96,
+      "processedOrderId": "ord-102",
+      "isRead": true,
+      "rawSnippet": "Dear Partner, A customer has just placed an order with your store on Flipkart! Order ID: OD129481928471928341..."
+    },
+    {
+      "id": "log-3",
+      "tenantId": "company-apex-retail",
+      "messageId": "msg-msh-49281741",
+      "subject": "New Order Received! Sub-Order ID s-4928174129",
+      "from": "supplier-alerts@meesho.com",
+      "date": "2026-11-19T00:51:43.550Z",
+      "marketplaceDetected": "MEESHO",
+      "emailType": "ORDER_CONFIRMATION",
+      "status": "PARTIAL",
+      "matchedRules": [
+        "Meesho Supplier Parsing Engine v1.8"
+      ],
+      "extractedData": {
+        "marketplaceOrderId": "s-4928174129",
+        "totalAmount": 449
+      },
+      "missingFields": [
+        "customer.email"
+      ],
+      "confidenceScore": 92,
+      "processedOrderId": "ord-103",
+      "isRead": false,
+      "rawSnippet": "Hello Seller, Great news! You have received a new customer order on Meesho Supplier Panel. Sub-Order ID: s-4928174129..."
+    },
+    {
+      "id": "log-4",
+      "tenantId": "company-apex-retail",
+      "messageId": "msg-amz-dup-9923",
+      "subject": "Order notification: 404-9823412-1928374 (Copy)",
+      "from": "order-update@amazon.in",
+      "date": "2026-11-19T03:16:43.550Z",
+      "marketplaceDetected": "AMAZON",
+      "emailType": "ORDER_CONFIRMATION",
+      "status": "DUPLICATE_SKIPPED",
+      "matchedRules": [
+        "Duplicate Order Fingerprint Preventer"
+      ],
+      "extractedData": {
+        "marketplaceOrderId": "404-9823412-1928374"
+      },
+      "missingFields": [],
+      "confidenceScore": 100,
+      "isRead": true,
+      "rawSnippet": "Identical confirmation received. Skipped ingestion to protect inventory and order records."
+    }
+  ],
+  "teamMembers": [
+    {
+      "id": "usr-1",
+      "tenantId": "company-apex-retail",
+      "name": "Aditya Singhania",
+      "email": "aditya@apexretail.io",
+      "role": "SUPER_ADMIN",
+      "department": "Executive Management",
+      "status": "ACTIVE",
+      "lastActive": "Just now"
+    },
+    {
+      "id": "usr-2",
+      "tenantId": "company-apex-retail",
+      "name": "Priya Sharma",
+      "email": "priya.s@apexretail.io",
+      "role": "ORDER_MANAGER",
+      "department": "Operations",
+      "status": "ACTIVE",
+      "lastActive": "12m ago",
+      "assignedMarketplaces": [
+        "AMAZON",
+        "FLIPKART",
+        "SHOPIFY"
+      ]
+    },
+    {
+      "id": "usr-3",
+      "tenantId": "company-apex-retail",
+      "name": "Rahul Deshmukh",
+      "email": "rahul.d@apexretail.io",
+      "role": "WAREHOUSE_STAFF",
+      "department": "Fulfillment & Logistics",
+      "status": "ACTIVE",
+      "lastActive": "25m ago",
+      "assignedMarketplaces": [
+        "MEESHO",
+        "MYNTRA",
+        "AJIO"
+      ]
+    },
+    {
+      "id": "usr-4",
+      "tenantId": "company-apex-retail",
+      "name": "Kavita Menon",
+      "email": "kavita.m@apexretail.io",
+      "role": "ADMIN",
+      "department": "Finance & Systems",
+      "status": "ACTIVE",
+      "lastActive": "1h ago"
+    },
+    {
+      "id": "usr-5",
+      "tenantId": "company-apex-retail",
+      "name": "Arjun Sen",
+      "email": "arjun.sen@apexretail.io",
+      "role": "VIEWER",
+      "department": "Investor Relations",
+      "status": "ACTIVE",
+      "lastActive": "3d ago"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": "act-1",
+      "tenantId": "company-apex-retail",
+      "userId": "usr-2",
+      "userName": "Priya Sharma",
+      "userRole": "ORDER_MANAGER",
+      "action": "UPDATE_ORDER_NOTE",
+      "entityType": "ORDER",
+      "entityId": "ord-101",
+      "description": "Added internal note: Confirmed gift packaging requested by customer.",
+      "timestamp": "2026-11-19T03:31:43.550Z"
+    },
+    {
+      "id": "act-2",
+      "tenantId": "company-apex-retail",
+      "userId": "system",
+      "userName": "Gmail Auto-Sync Engine",
+      "userRole": "ADMIN",
+      "action": "INGEST_GMAIL_ORDER",
+      "entityType": "GMAIL",
+      "entityId": "ord-101",
+      "description": "Parsed Amazon order #404-9823412-1928374 from email notification",
+      "timestamp": "2026-11-19T03:06:43.550Z"
+    },
+    {
+      "id": "act-3",
+      "tenantId": "company-apex-retail",
+      "userId": "usr-3",
+      "userName": "Rahul Deshmukh",
+      "userRole": "WAREHOUSE_STAFF",
+      "action": "PACK_ORDER",
+      "entityType": "ORDER",
+      "entityId": "ord-103",
+      "description": "Marked order s-4928174129 as PACKED and scanned box barcode",
+      "timestamp": "2026-11-19T02:51:43.550Z"
+    },
+    {
+      "id": "act-4",
+      "tenantId": "company-apex-retail",
+      "userId": "usr-1",
+      "userName": "Aditya Singhania",
+      "userRole": "SUPER_ADMIN",
+      "action": "SYNC_TRIGGER",
+      "entityType": "GMAIL",
+      "entityId": "sync-manual",
+      "description": "Triggered manual Gmail sync scan across 7 marketplaces",
+      "timestamp": "2026-11-19T03:39:43.550Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "tenantId": "company-apex-retail",
+      "title": "New Amazon Order Received",
+      "message": "Order #404-9823412-1928374 (₹3,499) for Noise-Cancelling Headphones was ingested from Gmail.",
+      "type": "NEW_ORDER",
+      "severity": "low",
+      "read": false,
+      "link": "/orders",
+      "createdAt": "2026-11-19T03:06:43.550Z"
+    },
+    {
+      "id": "notif-2",
+      "tenantId": "company-apex-retail",
+      "title": "Low Stock Alert: Lumbar Support Cushion",
+      "message": "Available stock for SKU CUSH-LUMB-MESH-GRY has dropped to 6 units (Threshold: 15).",
+      "type": "LOW_STOCK",
+      "severity": "high",
+      "read": false,
+      "link": "/inventory",
+      "createdAt": "2026-11-19T02:01:43.550Z"
+    },
+    {
+      "id": "notif-3",
+      "tenantId": "company-apex-retail",
+      "title": "Order Cancelled by Buyer",
+      "message": "Amazon order 408-7294821-9284729 was cancelled. Reserved stock released back to inventory.",
+      "type": "CANCELLATION",
+      "severity": "medium",
+      "read": true,
+      "link": "/orders",
+      "createdAt": "2026-11-19T00:31:43.550Z"
+    },
+    {
+      "id": "notif-4",
+      "tenantId": "company-apex-retail",
+      "title": "Gmail Sync Complete",
+      "message": "Auto-sync checked 14 recent emails. 1 new order ingested, 1 duplicate skipped.",
+      "type": "INFO",
+      "severity": "low",
+      "read": true,
+      "link": "/gmail-sync",
+      "createdAt": "2026-11-19T03:39:43.550Z"
+    }
+  ]
+}
